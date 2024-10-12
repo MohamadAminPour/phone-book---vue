@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="tabMenu">
+      <ul class="tabMenu-items">
+        <li @click="changeDisplay('showUser')" :class="{'active':activeDisplay=='showUser'} ">نمایش مخاطبان</li>
+        <li @click="changeDisplay('search')" :class="{'active':activeDisplay=='search'} ">جستجو</li>
+        <li @click="changeDisplay('addUser')" :class="{'active':activeDisplay=='addUser'} ">افزودن مخاطب</li>
+      </ul>
+
+      <div class="tabMenuPage showUser" v-if="activeDisplay=='showUser'">
+        <p class="showUser-title">لیست مخاطبان</p>
+        <p class="emptyMsg" v-if="contacts.length === 0">مخاطبی وجود ندارد !</p>
+        <ul class="showUser-items" v-for="contact in contacts">
+          <li class="showUser-item">
+            <!-- <span class="showUser-item__num">{{contact.id}}</span> -->
+            <div class="showUser-item__info">
+              <p class="showUser-item__name">{{contact.name}}</p>
+              <p class="showUser-item__phone">{{contact.phone}}</p>
+            </div>
+            <button class="delUser" @click="deleteContact(contact.id)">Delete</button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="tabMenuPage search" v-if="activeDisplay=='search'">
+        <p class="search-title">جستجو مخاطبان</p>
+        <div class="search-info">
+          <input type="text" v-model="search" placeholder="نام یا شماره مخاطب را وارد کنید..." />
+          <button class="search-info__btn">جستجو</button>
+        </div>
+        <hr style="margin-bottom: 1rem;">
+        <ul class="showUser-items" v-for="contact in getContact">
+          <li class="showUser-item">
+            <!-- <span class="showUser-item__num">{{contact.id}}</span> -->
+            <div class="showUser-item__info">
+              <p class="showUser-item__name">{{contact.name}}</p>
+              <p class="showUser-item__phone">{{contact.phone}}</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="tabMenuPage addUser" v-if="activeDisplay=='addUser'">
+        <p class="addUser-title">افزودن مخاطبان</p>
+
+        <div class="addUser-info">
+          <div class="addUser-name">
+            <label for="">نام و نام خانوادگی :</label>
+            <input v-model="newContact.name" type="text" placeholder="علی محمدی" />
+          </div>
+          <div class="addUser-phone">
+            <label for="">شماره تماس :</label>
+            <input v-model="newContact.phone" type="text" placeholder="09150000000" />
+          </div>
+          <button class="addUser-btn" @click="addUser">ثبت مخاطب</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
+ 

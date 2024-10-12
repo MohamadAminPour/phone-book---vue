@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  height: 100vh;
+  background-image: linear-gradient(
+    68.6deg,
+    rgba(79, 183, 131, 1) 14.4%,
+    rgba(254, 235, 151, 1) 92.7%
+  );
+}
+input,
+button {
+  border: none;
+  outline: none;
+}
+li {
+  list-style: none;
+}
+.tabMenu {
+  width: 30rem;
+}
+.tabMenu-items {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+.tabMenu-items li {
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 1rem;
+  cursor: pointer;
+  border-radius: 0.3rem;
+  transition: 0.3s;
+}
+
+.tabMenu-items li.active {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.tabMenu-items li:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.tabMenuPage {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+.tabMenuPage button {
+  background-color: #333;
+  color: white;
+  transition: 0.4s;
+}
+.tabMenuPage button:hover {
+  background-color: #555;
+}
+
+.showUser {
+  overflow: auto;
+  max-height: 330px;
+}
+.showUser-title,
+.search-title,
+.addUser-title {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.1em;
+}
+.showUser-item {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  background-color: rgba(220, 220, 220, 0.7);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  text-align: right;
+}
+.delUser {
+  width: 5rem;
+  height: 1.5rem;
+  border-radius: 5rem;
+  cursor: pointer;
+}
+.showUser-item__num {
+  margin: 0 1rem 0 1rem;
+}
+
+.showUser-item__phone {
+  font-size: 0.9rem;
+  margin-top: 0.2rem;
+}
+
+.search-info input,
+.search-info button {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+.search-info input {
+  padding: 1.1rem;
+}
+.search-info button {
+  cursor: pointer;
+}
+
+.addUser-info {
+  display: grid;
+  grid-template-areas: "name phone" "btn btn";
+  gap: 0.5rem;
+}
+.addUser-info label {
+  font-size: 0.9rem;
+}
+input {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
+  width: 100%;
+}
+.addUser-info .addUser-name {
+  grid-area: name;
+}
+.addUser-phone {
+  grid-area: phone;
+}
+.addUser-btn {
+  grid-area: btn;
+  margin-top: 0.3rem;
+  background-color: white;
+  height: 2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.emptyMsg {
+  width: 100%;
+  text-align: center;
+  background-color: rgb(234, 92, 92);
+  color: white;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  border: 1.5px solid red;
+}
